@@ -17,7 +17,7 @@ namespace ChessMonogame.Board
 
         public void Draw()
         {
-            Globals.SpriteBatch.Draw(_texture, _position, null, Color.Beige, 0f, Vector2.Zero, 1f,SpriteEffects.None, 0.1f);
+            Globals.SpriteBatch.Draw(_texture, _position, null, Color.Beige, 0f, Vector2.Zero, 1f,SpriteEffects.None, 0.2f);
         }
 
         public void Draw(Color color, float layer)

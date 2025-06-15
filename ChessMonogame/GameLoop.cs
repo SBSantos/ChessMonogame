@@ -49,7 +49,7 @@ public class GameLoop : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(new Color(02, 34, 21));
 
         // TODO: Add your drawing code here
         _gameManager.Draw();

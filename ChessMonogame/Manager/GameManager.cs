@@ -24,9 +24,6 @@ namespace ChessMonogame.Manager
 
         private void UpdateScaleScreen()
         {
-            float width = Globals.GraphicsDevice.PresentationParameters.BackBufferWidth;
-            float height = Globals.GraphicsDevice.PresentationParameters.BackBufferHeight;
-
             _screenScale = Matrix.CreateScale(2.5f);
         }
     }

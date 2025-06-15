@@ -3,6 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ChessMonogame.Utilities
 {
+    /// <summary>
+    /// Very useful for creating a prototype object.
+    /// </summary>
     class Pixel
     {
         private Rectangle _rect;
