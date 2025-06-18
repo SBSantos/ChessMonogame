@@ -4,25 +4,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ChessMonogame.Board
 {
-    class Tile : IDraw
+    class Tile : Sprite
     {
-        private Texture2D _texture;
-        private Vector2 _position;
-
-        public Tile(Texture2D texture, Vector2 position)
+        public Tile(Texture2D texture, Vector2 position) : base(texture, position)
         {
-            _texture = texture;
-            _position = position;
         }
 
-        public void Draw()
+        public override void Draw()
         {
-            Globals.SpriteBatch.Draw(_texture, _position, null, Color.Beige, 0f, Vector2.Zero, 1f,SpriteEffects.None, 0.2f);
+            Globals.SpriteBatch.Draw(Texture, Position, null, Color.Beige, 0f, Vector2.Zero, 1f,SpriteEffects.None, 0.2f);
         }
 
         public void Draw(Color color, float layer)
         {
-            Globals.SpriteBatch.Draw(_texture, _position, null, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, layer);
+            Globals.SpriteBatch.Draw(Texture, Position, null, color, 0f, Vector2.Zero, 1f, SpriteEffects.None, layer);
         }
     }
 }

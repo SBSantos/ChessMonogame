@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using ChessMonogame.Manager;
 using ChessMonogame.Utilities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace ChessMonogame.Board
 {
-    abstract class Piece : IDraw
+    class Piece : Sprite, IUpdate
     {
-        public Vector2? Position { get; set; }
         public Turn PlayerTurn { get; protected set; }
         private int MovementsQuantity { get; set; }
         private ChessBoard ChessBoard { get; set; }
+        private bool PieceClicked { get; set; }
 
-        public Piece(ChessBoard chessBoard, Turn playerTurn)
+        public Piece(Texture2D texture, Vector2 position, Turn playerTurn) : base(texture, position)
         {
-            Position = null;
-            ChessBoard = chessBoard;
             PlayerTurn = playerTurn;
             MovementsQuantity = 0;
         }
 
-        public void Draw()
+        public override void Draw()
         {
+        }
+
+        public void Update()
+        {
+            if (Rectangle.Contains(InputManager.MouseRectangle))
+            {
+                if (InputManager.Clicked) { Color = Color.Green; }
+            }
+
+            Color = PieceClicked ? Color.Green : Color; // A piece clicked will change it's color.
         }
 
         public void IncreaseMovementQuantity()
@@ -56,6 +66,9 @@ namespace ChessMonogame.Board
             return PossibleMovements()[(int)pos.X, (int)pos.Y];
         }
 
-        public abstract bool[,] PossibleMovements();
+        public virtual bool[,] PossibleMovements()
+        {
+            return PossibleMovements();
+        }
     }
 }
